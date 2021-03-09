@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginEnd="20dp"
+    android:background="@drawable/side_nav_bar"
+    android:layout_marginBottom="20dp"
+    tools:context=".DetailActivity">
+    <TextView
+        android:id="@+id/Location"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:text="Location Name "
+        android:textStyle="italic|bold"
+        />
+
+    <TextView
+        android:id="@+id/ConfirmedI"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:text="Confoirm cases in India "
+        android:textStyle="italic|bold"
+        />
+
+    <TextView
+        android:id="@+id/ConfirmedF"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/background"
+        android:text="Confirmed cases foreign :"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/discharged"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+
+        android:text="discharge "
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:textStyle="italic|bold" />
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/deaths"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+
+        android:text="Deaths "
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:textStyle="italic|bold" />
+
+    <TextView
+        android:id="@+id/total"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:text="total confirm "
+        android:textStyle="italic|bold"
+        />
+</LinearLayout>
+

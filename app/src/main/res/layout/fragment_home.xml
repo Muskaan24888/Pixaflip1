@@ -8,14 +8,11 @@
     tools:context=".ui.home.HomeFragment">
 
 
-
-
-
     <Button
         android:id="@+id/playVideo"
         android:layout_width="300dp"
         android:layout_height="80dp"
-        android:layout_marginTop="296dp"
+        android:layout_marginTop="132dp"
         android:background="@color/white"
         android:fontFamily="@font/italic"
         android:text="Play Video"
@@ -23,11 +20,10 @@
         android:textSize="40dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
 
     <Button
         android:id="@+id/showPdf"
@@ -46,4 +42,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playVideo"
         tools:ignore="MissingConstraints,RtlCompat" />
+
+    <Button
+
+        android:id="@+id/ShowReport"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="476dp"
+        android:background="@color/white"
+        android:fontFamily="@font/italic"
+        android:text="show report"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
