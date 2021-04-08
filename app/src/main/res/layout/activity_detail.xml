@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-
         android:textColor="#000000"
         android:textSize="28sp"
         android:text="Location Name "
@@ -30,28 +29,28 @@
 
     <TextView
         android:id="@+id/ConfirmedI"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-
         android:textColor="#000000"
         android:textSize="28sp"
-        android:text="Confoirm cases in India "
+        android:text="Confirm cases in India "
         android:textStyle="italic|bold"
         />
 
     <TextView
         android:id="@+id/ConfirmedF"
-        android:textStyle="italic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:textColor="@color/background"
-        android:text="Confirmed cases foreign :"
-        android:textSize="25sp" />
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:text="Confirm cases in foregin "
+        android:textStyle="italic|bold"
+        />
+
 
     <TextView
         android:id="@+id/discharged"
@@ -65,11 +64,6 @@
         android:textColor="#000000"
         android:textSize="28sp"
         android:textStyle="italic|bold" />
-
-
-
-
-
 
     <TextView
         android:id="@+id/deaths"
@@ -92,10 +86,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
 
+        android:text="total confirm "
         android:textColor="#000000"
         android:textSize="28sp"
-        android:text="total confirm "
-        android:textStyle="italic|bold"
-        />
+        android:textStyle="italic|bold" />
 </LinearLayout>
 

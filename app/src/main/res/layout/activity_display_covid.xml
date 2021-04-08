@@ -2,59 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#0F4C3F"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DisplayCovidActivity"
-    android:background="@drawable/side_nav_bar">
+    tools:context=".DisplayCovidActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-
-        android:textStyle="italic|bold"
-        android:textColor="#000000"
-        android:textSize="35sp">
-
-    </TextView>
     <TextView
         android:id="@+id/text_view_result"
-        android:layout_width="309dp"
-        android:layout_height="462dp"
-        android:background="@drawable/side_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-        android:layout_above="@+id/showStatewise"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="2dp"
-
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textDirection="firstStrongLtr"
-        android:textColor="@color/background"
-        android:textSize="25sp"/>
+        android:layout_marginEnd="10dp"
+        android:padding="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/showStatewise"
-        android:layout_width="329dp"
-        android:layout_height="80dp"
+        android:layout_width="190dp"
+        android:layout_height="73dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="25dp"
-        android:text="Satewise"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="90dp"
+        android:background="@color/white"
 
+        android:text="STATEWISE"
+        android:textColor="@android:color/black"/>
 
-        />
+    <View
+        android:layout_gravity="bottom"
+        android:background="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
 
 </RelativeLayout>

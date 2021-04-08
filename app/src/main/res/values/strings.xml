@@ -14,5 +14,7 @@
     <string name="home_second">Home Second</string>
     <string name="location_name">Location Name</string>
     <string name="confirmed_cases_india">Confirmed cases India :</string>
+
     <string name="confirmed_cases_foreign">Confirmed cases foreign :</string>
+    <string name="satewise">Satewise</string>
 </resources>

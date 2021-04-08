@@ -1,5 +1,4 @@
 package com.example.pixaflip;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,16 +15,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.pixaflip.sql.MyDbHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
+import java.util.Locale;
 public class ShowStates extends AppCompatActivity implements StateAdapter.OnItemClickListener{
-
-
     public static final String EXTRA_LOCATION = "Location";
     public static final String EXTRA_CONFIRMEDI = "ConfirmedCasesI";
     public static final String EXTRA_CONFIRMEDF = "ConfirmedCasesF";
@@ -35,37 +35,35 @@ public class ShowStates extends AppCompatActivity implements StateAdapter.OnItem
     // creating variables for
     // our ui components.
     private RecyclerView courseRV;
-
+    private String getDateTime()
+    {
+        SimpleDateFormat sd=new SimpleDateFormat ("yyyy-MM-ddcHH:mm:ss", Locale.getDefault ());
+        Date d=new Date ();
+        return sd.format(d);
+    }
     // variable for our adapter
     // class and array list
     private StateAdapter adapter;
     private ArrayList<MyState> courseModalArrayList;
-
     // below line is the variable for url from
     // where we will be querying our data.
     String url = "https://api.rootnet.in/covid19-in/stats/latest";
     private ProgressBar progressBar;
-
-
     String status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_states);
-
         // initializing our variables.
         courseRV = findViewById(R.id.idRVCourses);
         progressBar = findViewById(R.id.idPB);
-
         // below line we are creating a new array list
         courseModalArrayList = new ArrayList<>();
         getData();
-
         // calling method to
         // build recycler view.
         buildRecyclerView();
     }
-
     private void getData() {
         // creating a new variable for our request queue
         RequestQueue queue = Volley.newRequestQueue(ShowStates.this);
@@ -73,10 +71,8 @@ public class ShowStates extends AppCompatActivity implements StateAdapter.OnItem
         // of array so we are making a json array request.
         // below is the line where we are making an json array
         // request and then extracting data from each json object.
-
         JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
-
                     @Override
                     public void onResponse(JSONObject response) {
                         progressBar.setVisibility(View.GONE);
@@ -84,33 +80,23 @@ public class ShowStates extends AppCompatActivity implements StateAdapter.OnItem
                         try {
                             JSONObject obj=response.getJSONObject("data");
                             JSONArray dataObject = obj.getJSONArray("regional");
-
-
                             for (int i = 0; i < dataObject.length(); i++) {
                                 // creating a new json object and
                                 // getting each object from our json array.
-
                                 // we are getting each json object.
                                 JSONObject responseObj = dataObject.getJSONObject(i);
-
                                 // now we get our response from API in json object format.
                                 // in below line we are extracting a string with
                                 // its key value from our json object.
                                 // similarly we are extracting all the strings from our json object.
-
                                 MyState hero = new MyState(responseObj.getString("loc"),responseObj.getString("confirmedCasesIndian"),
                                         responseObj.getString("confirmedCasesForeign"),
                                         responseObj.getString("discharged"),
                                         responseObj.getString("deaths"),
                                         responseObj.getString("totalConfirmed"));
-
                                 courseModalArrayList.add(hero);
-
-
                                 buildRecyclerView();
-
                                 adapter.setOnItemClickListener(ShowStates.this);
-
                             }
                         }catch (JSONException e) {
                             e.printStackTrace();
@@ -124,28 +110,31 @@ public class ShowStates extends AppCompatActivity implements StateAdapter.OnItem
         });
         queue.add(jsonArrayRequest);
     }
-
     private void buildRecyclerView() {
-
         // initializing our adapter class.
         adapter = new StateAdapter(courseModalArrayList, ShowStates.this);
-
         // adding layout manager
         // to our recycler view.
         LinearLayoutManager manager = new LinearLayoutManager(this);
         courseRV.setHasFixedSize(true);
-
         // setting layout manager
         // to our recycler view.
         courseRV.setLayoutManager(manager);
-
         // setting adapter to
         // our recycler view.
         courseRV.setAdapter(adapter);
     }
-
     @Override
     public void onItemClick(int position) {
+        MyDbHelper db = new MyDbHelper(ShowStates.this);
+        db.adduseract( getLocalClassName (),getPackageCodePath (),getDateTime () );
+
+        // String name =  pos.getLoc;MyState modal = courseModalArrayList.get(position);
+        //        holder.Location.setText(modal.getLoc());
+        String name = courseModalArrayList.get(position).getLoc ();
+
+        db.adduseract ( "ShowStates",name,getDateTime () );
+
         Intent detailIntent = new Intent(this, DetailActivity.class);
         MyState clickedItem = courseModalArrayList.get(position);
         detailIntent.putExtra(EXTRA_LOCATION, clickedItem.getLoc());

@@ -15,6 +15,7 @@
         <activity android:name=".DisplayCovidActivity"></activity>
         <activity android:name=".DetailActivity" />
         <activity android:name=".ShowStates" />
+
         <activity android:name=".ui.favourite.FavActivity" />
         <activity android:name=".PDFActivity" />
         <activity
